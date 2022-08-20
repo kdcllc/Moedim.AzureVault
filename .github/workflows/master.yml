@@ -73,25 +73,25 @@ jobs:
       - name: Package
         run: dotnet pack --no-build --configuration ${{ env.configuration }}  --no-restore -p:Version=${{ steps.gitversion.outputs.nuGetVersionV2 }}  -o packages
 
-  #     - name: Publish Nuget Packages
-  #       run: dotnet nuget push packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      - name: Publish Nuget Packages
+        run: dotnet nuget push packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
-  # # This workflow contains
-  # tag:
-  #   runs-on: ubuntu-latest
-  #   needs: [build]
-  #   steps:
-  #     - name: Display GitVersion outputs
-  #       run: |
-  #         echo "Version: ${{ needs.build.outputs.Version }}"
-  #         echo "CommitsSinceVersionSource: ${{ needs.build.outputs.CommitsSinceVersionSource }}"
+  # This workflow contains
+  tag:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Display GitVersion outputs
+        run: |
+          echo "Version: ${{ needs.build.outputs.Version }}"
+          echo "CommitsSinceVersionSource: ${{ needs.build.outputs.CommitsSinceVersionSource }}"
 
-  #     - name: Create Tag and Release
-  #       id: create_release
-  #       uses: actions/create-release@v1
-  #       if: needs.build.outputs.CommitsSinceVersionSource > 0 # only create a release if there has been a commit
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this token is provided by actions not need to create
-  #       with:
-  #         tag_name: ${{ needs.build.outputs.Version }}
-  #         release_name: Release ${{ needs.build.outputs.Version }}
+      - name: Create Tag and Release
+        id: create_release
+        uses: actions/create-release@v1
+        if: needs.build.outputs.CommitsSinceVersionSource > 0 # only create a release if there has been a commit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this token is provided by actions not need to create
+        with:
+          tag_name: ${{ needs.build.outputs.Version }}
+          release_name: Release ${{ needs.build.outputs.Version }}

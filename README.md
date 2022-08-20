@@ -33,6 +33,13 @@ If you like or are using this project to learn or start your solution, please gi
 
 ## Usage
 
+Azure Key Vault Secrets can be something like:
+
+```csharp
+    dev--db--connectionString = "some secret connection"
+    prod--db--connectionString = "some secret connection"
+```
+
 If Azure AD App credentials are used than `TenantId`, `ClientId` and `ClientSecret` are also required values.
 
 For Azure AD `DefaultCredential` provider to be used only `BaseUrl` is required. The extension method validates `BaseUrl` value.

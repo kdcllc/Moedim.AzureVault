@@ -1,0 +1,39 @@
+<Project>
+
+	<PropertyGroup Label="Basic Settings">
+		<VersionPrefix>1.0.1-preview1</VersionPrefix>
+		<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+		<LangVersion>preview</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<NoWarn>$(NoWarn);CS1591;NU1605;</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Ownership Settings">
+		<Company>King David Consulting LLC</Company>
+		<Authors>kdcllc</Authors>
+		<Copyright>Copyright © King David Consulting LLC</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Nuget Package Settings">
+		<Description>Azure Vault Library for prefixes support.</Description>
+		<PackageProjectUrl>https://github.com/kdcllc/Moedim.AzureVault</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/kdcllc/Moedim.AzureVault.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicense>https://github.com/kdcllc/Moedim.AzureVault/master/LICENSE</PackageLicense>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageTags>dotnet, azure vault</PackageTags>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<PropertyGroup Label="SourceLink Settings">
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+		<DebugType>Embedded</DebugType>
+		<EmbedAllSources>True</EmbedAllSources>
+	</PropertyGroup>
+</Project>

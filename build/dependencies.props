@@ -1,0 +1,44 @@
+<Project>
+	<PropertyGroup>
+		<NetCoreVersion>3.1.28</NetCoreVersion>
+		<AnnotationsVersion>5.0.0</AnnotationsVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'netstandard2.1'">
+		<NetCoreVersion>[6.0.*, )</NetCoreVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net7.0'">
+		<NetCoreVersion>[7.0.0-preview.7.*, )</NetCoreVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Update="Microsoft.Extensions.Configuration" Version="$(NetCoreVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Configuration.Binder" Version="$(NetCoreVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Options.DataAnnotations" Version="$(NetCoreVersion)" />
+
+		<PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(NetCoreVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Options" Version="$(NetCoreVersion)" />
+
+		<PackageReference Update="System.Text.Json" Version="6.0.5" />
+		<PackageReference Update="System.ComponentModel.Annotations" Version="$(AnnotationsVersion)" />
+
+		<PackageReference Update="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
+		<PackageReference Update="Microsoft.Extensions.Azure" Version="1.4.0" />
+
+		<PackageReference Update="Bet.Extensions" Version="4.0.1" />
+	</ItemGroup>
+
+	<ItemGroup Label="SourceLink">
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+	</ItemGroup>
+
+	<ItemGroup Label="Analyzers">
+		<PackageReference Include="Bet.CodeAnalyzers" Version="1.0.12" PrivateAssets="All" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../img/icon.png" Pack="true" Visible="false" PackagePath="" />
+	</ItemGroup>
+
+</Project>

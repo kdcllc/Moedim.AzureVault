@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" />
+		<PackageReference Include="Bet.Extensions" />
+		<PackageReference Include="Microsoft.Extensions.Azure" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+		<PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" />
+		<PackageReference Include="System.ComponentModel.Annotations" />
+		<PackageReference Include="System.Text.Json" />
+	</ItemGroup>
+
+</Project>

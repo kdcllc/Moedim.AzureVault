@@ -2,14 +2,17 @@
 	<PropertyGroup>
 		<NetCoreVersion>3.1.28</NetCoreVersion>
 		<AnnotationsVersion>5.0.0</AnnotationsVersion>
+		<JsonVersion>4.6.0</JsonVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'netstandard2.1'">
 		<NetCoreVersion>[6.0.*, )</NetCoreVersion>
+		<JsonVersion>$(NetCoreVersion)</JsonVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net7.0'">
-		<NetCoreVersion>[7.0.0-preview.7.*, )</NetCoreVersion>
+		<NetCoreVersion>[7.0.*, )</NetCoreVersion>
+		<JsonVersion>$(NetCoreVersion)</JsonVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -20,7 +23,8 @@
 		<PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(NetCoreVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Options" Version="$(NetCoreVersion)" />
 
-		<PackageReference Update="System.Text.Json" Version="6.0.5" />
+		<PackageReference Update="System.Text.Json" Version="$(JsonVersion)" />
+
 		<PackageReference Update="System.ComponentModel.Annotations" Version="$(AnnotationsVersion)" />
 
 		<PackageReference Update="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
